@@ -1,5 +1,6 @@
 FROM python:3.8-buster
 COPY . /app
+WORKDIR /app
 RUN python3 -m pip install pipenv
 RUN pipenv install
-CMD gunicorn server:app
+CMD pipenv run gunicorn server:app
